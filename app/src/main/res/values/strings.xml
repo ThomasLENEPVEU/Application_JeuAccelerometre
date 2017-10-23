@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Application_JeuAccelerometre</string>
+    <string name="title_activity_start">Demarrage</string>
+    <string name="title_activity_score">Scores</string>
+    <string name="title_activity_scoremap">CarteScores</string>
+    <string name="title_activity_game">Jeu</string>
+</resources>
