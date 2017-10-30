@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonstart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start"
@@ -11,12 +11,12 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonscore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Score"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/buttonstart"
         android:layout_centerHorizontal="true" />
 
     <TextView

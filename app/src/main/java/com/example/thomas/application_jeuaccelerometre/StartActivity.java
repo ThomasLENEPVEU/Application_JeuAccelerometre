@@ -17,16 +17,28 @@ public class StartActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        final Button button_start = findViewById(R.id.button);
+        final Button button_start = findViewById(R.id.buttonstart);
         button_start.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startGame(v);
+            }
+        });
+
+        final Button button_score = findViewById(R.id.buttonscore);
+        button_score.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showScore(v);
             }
         });
     }
 
     public void startGame(View view) {
         Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+    }
+
+    public void showScore(View view) {
+        Intent intent = new Intent(this, ScoreActivity.class);
         startActivity(intent);
     }
 }
