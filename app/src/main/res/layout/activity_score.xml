@@ -7,5 +7,11 @@
         android:id="@+id/buttonscoremap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Carte des scores" />
+        android:text="@string/button_activity_score_buttonscoremap" />
+
+    <Button
+        android:id="@+id/buttontitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_activity_score_buttonstart" />
 </LinearLayout>

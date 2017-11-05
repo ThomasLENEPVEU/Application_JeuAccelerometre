@@ -1,7 +1,21 @@
 <resources>
-    <string name="app_name">Application_JeuAccelerometre</string>
-    <string name="title_activity_start">Demarrage</string>
-    <string name="title_activity_score">Scores</string>
-    <string name="title_activity_scoremap">CarteScores</string>
-    <string name="title_activity_game">Jeu</string>
+    <string name="app_name">Application_AccelerometerGame</string>
+    <string name="title_activity_start">Start</string>
+    <string name="button_activity_start_buttonstart">Start Game</string>
+    <string name="button_activity_start_buttonscore">Score Table</string>
+    <string name="edittext_activity_start_username">User</string>
+    <string name="textview_activity_start_userlabel">Player :</string>
+    <string name="title_activity_score">Score</string>
+    <string name="title_activity_scoremap">ScoreMap</string>
+    <string name="button_activity_score_buttonscoremap">Score Map Test</string>
+    <string name="button_activity_score_buttonstart">Return to Main Menu</string>
+    <string name="title_activity_game">Game</string>
+    <string name="title_activity_endgame">End of the Game</string>
+
+    <string name="user_label">Player</string>
+    <string name="score_label">Score</string>
+    <string name="latitude_label">Latitude</string>
+    <string name="longitude_label">Longitude</string>
+    <string name="button_activity_endgame_buttonsavetrue">Save</string>
+    <string name="button_activity_endgame_buttonsavefalse">Don\'t Save</string>
 </resources>

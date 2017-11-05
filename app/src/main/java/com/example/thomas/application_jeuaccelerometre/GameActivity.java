@@ -1,5 +1,6 @@
 package com.example.thomas.application_jeuaccelerometre;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -12,6 +13,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.util.AttributeSet;
@@ -23,6 +25,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
+import static java.lang.Math.toIntExact;
+
 public class GameActivity extends Activity {
 
     private SimulationView mSimulationView;
@@ -32,10 +36,19 @@ public class GameActivity extends Activity {
     private Display mDisplay;
     private WakeLock mWakeLock;
 
+    protected String mUserName;
+    protected int mUserScore;
+    protected CountDownTimer cdt;
+    protected int cdt_timeleft;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mUserName = getIntent().getStringExtra("user_name");
+        System.out.println("mUserName : " + mUserName);
+        cdt_timeleft = 30000;
 
         // Get an instance of the SensorManager
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -81,6 +94,7 @@ public class GameActivity extends Activity {
 
         // Stop the simulation
         mSimulationView.stopSimulation();
+        cdt.cancel();
 
         // and release our wake-lock
         mWakeLock.release();
@@ -165,17 +179,23 @@ public class GameActivity extends Activity {
                 if (x > xmax) {
                     mPosX = xmax;
                     mVelX = 0;
+                    mUserScore--;
                 } else if (x < -xmax) {
                     mPosX = -xmax;
                     mVelX = 0;
+                    mUserScore--;
                 }
                 if (y > ymax) {
                     mPosY = ymax;
                     mVelY = 0;
+                    mUserScore--;
                 } else if (y < -ymax) {
                     mPosY = -ymax;
                     mVelY = 0;
+                    mUserScore--;
                 }
+                mUserScore++;
+                System.out.println("Score : " + mUserScore);
             }
         }
 
@@ -291,7 +311,25 @@ public class GameActivity extends Activity {
              * of the acceleration. As an added benefit, we use less power and
              * CPU resources.
              */
+
             mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_GAME);
+            mUserScore = 0;
+            cdt = new CountDownTimer(cdt_timeleft,100){
+                public void onTick(long millisUntilFinished){
+                    cdt_timeleft = toIntExact(millisUntilFinished);
+                    System.out.println("Time left :" + cdt_timeleft);
+                }
+
+                public void onFinish(){
+                    mSimulationView.stopSimulation();
+                    Intent intent = new Intent();
+                    intent.setClassName("com.example.thomas.application_jeuaccelerometre", "com.example.thomas.application_jeuaccelerometre.EndGameActivity");
+                    intent.putExtra("user_name",mUserName);
+                    intent.putExtra("user_score",mUserScore);
+                    System.out.println("End of the game!");
+                    startActivity(intent);
+                }
+            }.start();
         }
 
         public void stopSimulation() {

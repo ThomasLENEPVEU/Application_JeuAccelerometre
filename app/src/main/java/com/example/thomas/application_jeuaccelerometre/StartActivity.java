@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 /**
  * Created by Thomas on 12/10/2017.
@@ -33,7 +34,10 @@ public class StartActivity extends Activity {
     }
 
     public void startGame(View view) {
+        EditText name = null;
+        name = (EditText)findViewById(R.id.username);
         Intent intent = new Intent(this, GameActivity.class);
+        intent.putExtra("user_name",name.getText().toString());
         startActivity(intent);
     }
 

@@ -2,11 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonstart"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="@string/edittext_activity_start_username" />
+
     <Button
         android:id="@+id/buttonstart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start"
+        android:text="@string/button_activity_start_buttonstart"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
@@ -14,18 +23,17 @@
         android:id="@+id/buttonscore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Score"
+        android:text="@string/button_activity_start_buttonscore"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/buttonstart"
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/userlabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/username"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
-        android:text="Jeu Accelerometre" />
+        android:text="@string/textview_activity_start_userlabel" />
 
 </RelativeLayout>
