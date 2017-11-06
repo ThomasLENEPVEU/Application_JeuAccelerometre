@@ -32,10 +32,6 @@ public class StartActivity extends Activity {
                 showScore(v);
             }
         });
-
-        MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.music);
-        mPlayer.start();
-        mPlayer.setLooping(true);
     }
 
     public void startGame(View view) {
